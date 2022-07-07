@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'reusable_card.dart';
-import 'Icon_content.dart';
-import 'constants.dart';
+import '../components/reusable_card.dart';
+import '../components/Icon_content.dart';
+import '../constants.dart';
 
-class result extends StatefulWidget {
-  const result({Key? key}) : super(key: key);
-
-  @override
-  State<result> createState() => _resultState();
-}
-
-class _resultState extends State<result> {
+class result extends StatelessWidget {
+  result(
+      {required this.bmiResult, required this.resultext, required this.interp});
+  String bmiResult;
+  String resultext;
+  String interp;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,17 +36,15 @@ class _resultState extends State<result> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "OVERWEIGHT",
+                    resultext,
                     style: TextStyle(
                         color: Colors.green,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text("57", style: knumbertext2),
+                  Text(bmiResult, style: knumbertext2),
                   Text(
-                    "OverwhiteOverwhiteOverwhiteOverwhiteOverwhiteOverwhiteOverwhiteOverwhiteOverwhi"
-                    "teOverwhiteOve"
-                    "rwhiteOverwhiteOverwhite",
+                    interp,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 22,

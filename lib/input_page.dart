@@ -15,6 +15,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.none;
   int height = 180;
+  int weight = 50;
+  int age = 18;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,11 +114,91 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: ReusableCard(
                       colour: KColorbox,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "WEIGHT",
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            weight.toString(),
+                            style: knumbertext,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                ),
+                                press: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                              ),
+                              SizedBox(width: 10),
+                              RoundIconButton(
+                                  press: () {
+                                    setState(() {
+                                      weight++;
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
                       colour: KColorbox,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "AGE",
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            age.toString(),
+                            style: knumbertext,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                ),
+                                press: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                },
+                              ),
+                              SizedBox(width: 10),
+                              RoundIconButton(
+                                  press: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -132,5 +214,22 @@ class _InputPageState extends State<InputPage> {
         ),
       ),
     );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({this.child, this.press});
+  final Widget? child;
+  final VoidCallback? press;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+        child: child,
+        onPressed: press,
+        shape: CircleBorder(),
+        fillColor: Color(0xFF4C4F5E),
+        elevation: 6,
+        constraints: BoxConstraints.tightFor(width: 56, height: 56));
   }
 }

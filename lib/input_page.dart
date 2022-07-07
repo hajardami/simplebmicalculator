@@ -14,6 +14,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.none;
+  int height = 180;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,8 +64,40 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: ReusableCard(
                       cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text("test", style: kLabelTextStyle)
+                          Text("HEIGHT", style: kLabelTextStyle),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            textBaseline: TextBaseline.alphabetic,
+                            children: <Widget>[
+                              Text(height.toString(), style: knumbertext),
+                              Text(
+                                "cm",
+                                style: kLabelTextStyle,
+                              ),
+                            ],
+                          ),
+                          SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              thumbColor: KBottomcolor,
+                              activeTrackColor: Colors.white,
+                              overlayColor: Color(0x29EB1555),
+                            ),
+                            child: Slider(
+                              value: height.toDouble(),
+                              onChanged: (number) {
+                                setState(() {
+                                  height = number.toInt();
+                                });
+                              },
+                              max: 220,
+                              min: 150,
+                              // KBottomcolor
+                              inactiveColor: kInactiveColor,
+                            ),
+                          )
                         ],
                       ),
                       colour: KColorbox,

@@ -37,8 +37,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colour: selectedGender == Gender.male
-                          ? KColorbox
-                          : kColorboxclicked,
+                          ? kColorboxclicked
+                          : KColorbox,
                       cardChild: ContentIcon(
                           label: "MALE", icon: FontAwesomeIcons.mars),
                     ),
@@ -51,8 +51,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colour: selectedGender == Gender.female
-                          ? KColorbox
-                          : kColorboxclicked,
+                          ? kColorboxclicked
+                          : KColorbox,
                       cardChild: ContentIcon(
                           label: "FEMALE", icon: FontAwesomeIcons.venus),
                     ),
@@ -204,11 +204,20 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Container(
-              color: KBottomcolor,
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              margin: EdgeInsets.only(top: 10.0),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "/calculate");
+              },
+              child: Container(
+                child: Text(
+                  "CALCULATE",
+                  style: TextStyle(color: Colors.white70, fontSize: 20),
+                ),
+                color: KBottomcolor,
+                width: double.infinity,
+                height: kBottomContainerHeight,
+                margin: EdgeInsets.only(top: 10.0),
+              ),
             )
           ],
         ),

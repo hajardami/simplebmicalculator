@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'Icon_content.dart';
+import 'constants.dart';
 
-const bottomContainerHeight = 80.0;
-const Color colorboxclicked = Color(0xFF1D1E33);
-const Color colorbox = Color(0xFF111328);
-const Color bottomcolor = Color(0xFFEB1555);
 enum Gender { male, female, none }
 
 class InputPage extends StatefulWidget {
@@ -37,8 +34,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colour: selectedGender == Gender.male
-                          ? colorbox
-                          : colorboxclicked,
+                          ? KColorbox
+                          : kColorboxclicked,
                       cardChild: ContentIcon(
                           label: "MALE", icon: FontAwesomeIcons.mars),
                     ),
@@ -51,8 +48,8 @@ class _InputPageState extends State<InputPage> {
                         });
                       },
                       colour: selectedGender == Gender.female
-                          ? colorbox
-                          : colorboxclicked,
+                          ? KColorbox
+                          : kColorboxclicked,
                       cardChild: ContentIcon(
                           label: "FEMALE", icon: FontAwesomeIcons.venus),
                     ),
@@ -65,7 +62,12 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      colour: colorbox,
+                      cardChild: Column(
+                        children: <Widget>[
+                          Text("test", style: kLabelTextStyle)
+                        ],
+                      ),
+                      colour: KColorbox,
                     ),
                   ),
                 ],
@@ -76,21 +78,21 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                     child: ReusableCard(
-                      colour: colorbox,
+                      colour: KColorbox,
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      colour: colorbox,
+                      colour: KColorbox,
                     ),
                   ),
                 ],
               ),
             ),
             Container(
-              color: bottomcolor,
+              color: KBottomcolor,
               width: double.infinity,
-              height: bottomContainerHeight,
+              height: kBottomContainerHeight,
               margin: EdgeInsets.only(top: 10.0),
             )
           ],

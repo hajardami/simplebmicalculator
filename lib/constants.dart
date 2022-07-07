@@ -13,3 +13,8 @@ const knumbertext = TextStyle(
   fontWeight: FontWeight.w900,
   fontSize: 50,
 );
+
+const knumbertext2 = TextStyle(
+  fontWeight: FontWeight.w900,
+  fontSize: 80,
+);

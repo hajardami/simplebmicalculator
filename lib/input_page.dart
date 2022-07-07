@@ -209,9 +209,15 @@ class _InputPageState extends State<InputPage> {
                 Navigator.pushNamed(context, "/calculate");
               },
               child: Container(
-                child: Text(
-                  "CALCULATE",
-                  style: TextStyle(color: Colors.white70, fontSize: 20),
+                padding: EdgeInsets.only(bottom: 20.0),
+                child: Center(
+                  child: Text(
+                    "CALCULATE",
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
                 color: KBottomcolor,
                 width: double.infinity,
